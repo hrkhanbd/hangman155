@@ -60,25 +60,7 @@ hangman155/
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
-### Steps to Update Your README on GitHub
 
-1. **Open Your Repository:**
-   - Navigate to your repository at [https://github.com/hrkhanbd/hangman155](https://github.com/hrkhanbd/hangman155).
-
-2. **Edit the README.md File:**
-   - Click on the `README.md` file in your repository.
-   - Click on the pencil icon to edit the file.
-
-3. **Copy and Paste the Template:**
-   - Copy the above README template.
-   - Paste it into your `README.md` file.
-
-4. **Commit Your Changes:**
-   - Scroll down to the bottom of the page.
-   - Add a commit message, for example, "Updated README documentation".
-   - Click on "Commit changes".
-
-By following these steps, your GitHub repository will have a comprehensive and well-organized README file, providing clear information about the Hangman project, how to install and use it, and other relevant details.
 
 
 
