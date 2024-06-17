@@ -1,31 +1,43 @@
-# Step 1: Import the random module
 import random
 
-# Step 2: Create a list containing the names of your 5 favorite fruits
-fruits = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry']
+def create_word_list():
+    """Create a list of favorite fruits."""
+    return ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry']
 
-# Step 3: Assign this list to a variable called word_list
-word_list = fruits
+def select_random_word(word_list):
+    """Select a random word from the given list."""
+    return random.choice(word_list)
 
-# Step 4: Print out the newly created list to the standard output (screen)
-print(word_list)
+def get_user_guess():
+    """Prompt the user to enter a single letter and return the guess."""
+    return input("Enter a single letter: ")
 
-# Step 5: Use random.choice to select a random word from word_list
-word = random.choice(word_list)
+def validate_guess(guess):
+    """Validate that the guess is a single alphabetical character."""
+    return len(guess) == 1 and guess.isalpha()
 
-# Step 6: Print the randomly selected word to the standard output
-print(word)
+def main():
+    """Main function to run the Hangman game."""
+    # Step 1: Create a list of words
+    word_list = create_word_list()
+    print("Word list:", word_list)
 
-# Step 7: Using the input function, ask the user to enter a single letter
-guess = input("Enter a single letter: ")
+    # Step 2: Select a random word from the list
+    selected_word = select_random_word(word_list)
+    print("Selected word (for testing):", selected_word)
 
-# Step 8: Check that the input is a single alphabetical character
-if len(guess) == 1 and guess.isalpha():
-    # Step 9: Print a message if the input is valid
-    print("Good guess!")
-else:
-    # Step 10: Print a message if the input is not valid
-    print("Oops! That is not a valid input.")
+    # Step 3: Get user guess
+    guess = get_user_guess()
+
+    # Step 4: Validate the guess
+    if validate_guess(guess):
+        print("Good guess!")
+    else:
+        print("Oops! That is not a valid input.")
+
+if __name__ == "__main__":
+    main()
+
 
 
 
