@@ -36,6 +36,19 @@ The main objective is to practice and solidify my understanding of Python basics
    ```bash
    git clone https://github.com/hrkhanbd/hangman155.git
 
+## Usage Instructions
+1. Run the Game
+
+- Open your terminal or command prompt.
+- Navigate to the project directory.
+- Run the game using Python:
+
+1. Follow the On-Screen Prompts
+
+- The game will prompt you to guess a letter.
+- Enter a single alphabetical character and press Enter.
+- The game will provide feedback on your guess.
+
 
 
 
