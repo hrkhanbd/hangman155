@@ -11,26 +11,26 @@ class Hangman:
         """
         self.word_list = word_list
         self.num_lives = num_lives
-        self.word = random.choice(word_list).lower()
-        self.word_guessed = ['_' for _ in self.word]
-        self.num_letters = len(set(self.word))
-        self.list_of_guesses = []
+        self.secret_word = random.choice(word_list).lower()
+        self.guessed_word = ['_' for _ in self.secret_word]
+        self.remaining_letters = len(set(self.secret_word))
+        self.guessed_letters = []
 
-    def _update_word_guessed(self, guess):
+    def _update_guessed_word(self, guess):
         """
-        Update the word_guessed list with the guessed letter.
+        Update the guessed_word list with the guessed letter.
 
         Args:
             guess (str): The guessed letter.
         """
-        for i, letter in enumerate(self.word):
+        for index, letter in enumerate(self.secret_word):
             if letter == guess:
-                self.word_guessed[i] = guess
-        self.num_letters -= 1
+                self.guessed_word[index] = guess
+        self.remaining_letters -= 1
 
-    def _print_current_state(self):
-        """Print the current state of the guessed word and lives left."""
-        print("Current word:", " ".join(self.word_guessed))
+    def _print_game_status(self):
+        """Print the current state of the guessed word and remaining lives."""
+        print("Current word:", " ".join(self.guessed_word))
         print(f"You have {self.num_lives} lives left.")
 
     def check_guess(self, guess):
@@ -41,13 +41,13 @@ class Hangman:
             guess (str): The guessed letter.
         """
         guess = guess.lower()
-        if guess in self.word:
+        if guess in self.secret_word:
             print(f"Good guess! '{guess}' is in the word.")
-            self._update_word_guessed(guess)
+            self._update_guessed_word(guess)
         else:
             print(f"Sorry, '{guess}' is not in the word.")
             self.num_lives -= 1
-        self._print_current_state()
+        self._print_game_status()
 
     def ask_for_input(self):
         """Prompt the user to enter a single letter and validate the input."""
@@ -55,10 +55,10 @@ class Hangman:
             guess = input("Enter a single letter: ").lower()
             if not self._is_valid_guess(guess):
                 print("Invalid letter. Please, enter a single alphabetical character.")
-            elif guess in self.list_of_guesses:
+            elif guess in self.guessed_letters:
                 print("You already tried that letter!")
             else:
-                self.list_of_guesses.append(guess)
+                self.guessed_letters.append(guess)
                 self.check_guess(guess)
                 break
 
@@ -86,14 +86,15 @@ def play_game(word_list):
     print("A secret word has been chosen. Let's start the game!")
     while True:
         if game.num_lives == 0:
-            print("You lost! The word was:", game.word)
+            print("You lost! The word was:", game.secret_word)
             break
-        elif game.num_letters > 0:
+        elif game.remaining_letters > 0:
             game.ask_for_input()
         else:
-            print("Congratulations! You won the game! The word was:", game.word)
+            print("Congratulations! You won the game! The word was:", game.secret_word)
             break
 
 if __name__ == "__main__":
     word_list = ['apple', 'banana', 'cherry', 'date', 'mango']
     play_game(word_list)
+
