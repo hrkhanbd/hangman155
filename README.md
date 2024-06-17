@@ -48,6 +48,17 @@ The main objective is to practice and solidify my understanding of Python basics
    - The game will prompt you to guess a letter.
    - Enter a single alphabetical character and press Enter.
    - The game will provide feedback on your guess.
+  
+## File Structure
+hangman155/
+├── README.md
+└── hangman.py
+
+- README.md: This file contains information about the project.
+- milestone_2.py: This is the main script for the Hangman game
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 
 
